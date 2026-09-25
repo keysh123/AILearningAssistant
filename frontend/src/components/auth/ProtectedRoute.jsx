@@ -1,6 +1,6 @@
 import React from 'react'
 import AppLayout from '../layout/AppLayout';
-
+import { Navigate, Outlet } from 'react-router-dom';
 
 const ProtectedRoute = () => {
       const isAuthenticated = true; // Replace with your authentication logic
@@ -15,7 +15,7 @@ const ProtectedRoute = () => {
             <Outlet/>
         </AppLayout>
     ): (
-        <Naviagate to="/login" replace/>
+        <Navigate to="/login" replace/>
     )
   )
 }
