@@ -8,6 +8,8 @@ import { fileURLToPath } from "url";
 import errorHandler from "./middleware/errorHandler";
 import connectDB from "./config/db";
 
+import authRoutes from './routes/authRoute'
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -20,6 +22,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+app.use('/api/auth',authRoutes)
 
 app.use(errorHandler)
 
